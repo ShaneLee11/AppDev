@@ -28,12 +28,12 @@ const styles = {
     lineHeight: 23,
     borderBottomColor: '#ddd',
     borderBottomWidth:1,
-    flex: 0.7
+    flex: 0.65
   },
   labelStyle: {
     fontSize: 18,
     paddingHorizontal: 10,
-    flex: 0.3
+    flex: 0.28
   },
   containerStyle: {
     height: 48,

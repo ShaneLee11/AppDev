@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, View, TouchableOpacity } from 'react-native';
+import { Text, View, TouchableOpacity, ScrollView } from 'react-native';
 import { Button, Card, CardSection, Input, Spinner } from './common';
 import firebase from '@firebase/app';
 import '@firebase/auth';
@@ -84,8 +84,13 @@ class LoginForm extends Component {
 
   render() {
     return (
+ 
+      <ScrollView style={{flex:1, backgroundColor:'white'}} contentContainerStyle={{justifyContent:'center', alignItems:'center'}}>
       <Card height={1} color='transparent' justifyContent='center'>
+
+      
         <Card height={0.7} color='transparent' justifyContent='space-around'>
+        
           <CardSection>
             <Input
             label='Email'
@@ -130,10 +135,9 @@ class LoginForm extends Component {
             {this.renderSignUpButton()}
           </CardSection>
         </Card>
-
-
         
       </Card>
+      </ScrollView>
     );
   }
 }
@@ -149,7 +153,7 @@ const styles = {
     justifyContent: 'center',
     alignItems: 'center',
     height: 40,
-    // paddingTop: 15,
+    marginTop: 35,
     shadowOpacity: 0.2,
     position: 'relative'
   },

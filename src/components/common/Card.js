@@ -3,7 +3,7 @@ import { View } from 'react-native';
 
 const Card = (props) => {
   return (
-    <View style={[{flex:props.height, backgroundColor:'white', justifyContent:props.justifyContent},styles.containerStyle]}>
+    <View style={[{flex:props.height, width:'100%', backgroundColor:'white', justifyContent:props.justifyContent},styles.containerStyle]}>
       {props.children}
     </View>
   );

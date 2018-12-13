@@ -12,8 +12,6 @@ import Help from './src/components/Help';
 import Rewards from './src/components/Rewards';
 import Profile from './src/components/Profile';
 import LoginForm from './src/components/LoginForm';
-// import SignupForm from './src/components/SignUp';
-import ForgetPasswordForm from './src/components/ForgetPassword';
 import Register from './src/components/Register';
 import ForgotPassword from './src/components/ForgotPassword';
 
@@ -26,21 +24,13 @@ export default class App extends React.Component {
   state = { loggedIn: null };
 
   componentDidMount() {
-    // firebase.initializeApp({
-    //   apiKey: 'AIzaSyBBCUH6Z9dYPiVK_zDBFkodmYqzp1fPy6Q',
-    //   authDomain: 'auth-5d612.firebaseapp.com',
-    //   databaseURL: 'https://auth-5d612.firebaseio.com',
-    //   projectId: 'auth-5d612',
-    //   storageBucket: 'auth-5d612.appspot.com',
-    //   messagingSenderId: '544181894629'
-    // });
     firebase.initializeApp({
-      apiKey: "AIzaSyBy44dNsCoNhGfcuMbNJnnvb-bQo7uH_rI",
-      authDomain: "surge-f2e72.firebaseapp.com",
-      databaseURL: "https://surge-f2e72.firebaseio.com",
-      projectId: "surge-f2e72",
-      storageBucket: "surge-f2e72.appspot.com",
-      messagingSenderId: "930202523129"
+      apiKey: 'AIzaSyBBCUH6Z9dYPiVK_zDBFkodmYqzp1fPy6Q',
+      authDomain: 'auth-5d612.firebaseapp.com',
+      databaseURL: 'https://auth-5d612.firebaseio.com',
+      projectId: 'auth-5d612',
+      storageBucket: 'auth-5d612.appspot.com',
+      messagingSenderId: '544181894629'
     });
 
     firebase.auth().onAuthStateChanged((user) => {
@@ -86,12 +76,12 @@ const CustomDrawerComponent = (props) => (
 
 const AppDrawerNavigator = createDrawerNavigator({
   Home: HomeScreen,
-  // Notifications: Notifications,
-  // History: History,
-  // Rewards: Rewards,
-  // Payment: Payment,
-  // Help: Help,
-  // Settings: Settings,
+  Notifications: Notifications,
+  History: History,
+  Rewards: Rewards,
+  Payment: Payment,
+  Help: Help,
+  Settings: Settings,
   Profile: Profile
 }, {
   contentComponent: CustomDrawerComponent,

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, TouchableOpacity } from 'react-native';
+import { View, Text, TouchableOpacity, ScrollView } from 'react-native';
 import { Button, Card, CardSection, Input, Spinner } from './common';
 import firebase from '@firebase/app';
 import '@firebase/auth';
@@ -82,9 +82,12 @@ class Register extends Component {
 
   render() {
     return (
+      <ScrollView style={{flex:1, backgroundColor:'white'}} contentContainerStyle={{justifyContent:'center', alignItems:'center'}}>
+
       <Card height={1} color='transparent' justifyContent='center'>
-        <Card height={0.5} color='transparent' justifyContent='flex-start'>
-          <CardSection>
+        <Card height={0.7} color='transparent' justifyContent='flex-start'>
+        {/* <View style={{height:'70%', width:'100%', justifyContent:'flex-start'}}> */}
+        <CardSection>
             <Input
             label='Full Name'
             placeholder='username'
@@ -116,10 +119,12 @@ class Register extends Component {
             {this.state.error}
           </Text>          
 
+        {/* </View> */}
+          
         </Card>
 
 
-          <Card height={0.5} justifyContent='flex-start'>
+          <Card height={0.3} justifyContent='flex-start'>
             <CardSection>
               {this.renderSignUpButton()}
             </CardSection>
@@ -140,6 +145,7 @@ class Register extends Component {
 
         
       </Card>
+      </ScrollView>
     );
   }
 }
