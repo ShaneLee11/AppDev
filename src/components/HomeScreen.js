@@ -1,50 +1,48 @@
 import React, { Component } from 'react';
-import { StyleSheet, View, Text, SafeAreaView, ScrollView, Dimensions } from 'react-native';
-import { Header, Left, Right, Icon, Body, Title, Container, Button } from 'native-base';
+import { View, Text, StyleSheet } from 'react-native';
+import { Header, Left, Right, Icon, Content, Body, Title } from 'native-base';
 
 
 class HomeScreen extends Component {
+
+  static navigationOptions = {
+    drawerLabel: 'Home',
+    drawerIcon : () => (
+      <Icon name="home" style={{ fontSize: 24 }} />
+    )
+  }
+
   render() {
     return (
-      <Container>        
+      <Content>
         <Header>
           <Left>
-            <Button
-              transparent
-              onPress={() => this.props.navigation.navigate("DrawerOpen")}
-            >
-              <Icon name="menu" />
-            </Button>
+            <Icon name="menu" onPress={() => this.props.navigation.openDrawer()} />
           </Left>
           <Body>
-            <Title>HomeScreen</Title>
+            <Title>Home</Title>
           </Body>
           <Right />
         </Header>
-
-        <Text> Home Screen </Text>
-        <Text> Home Screen </Text>
-        <Text> Home Screen </Text>
-      </Container>
+        <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+          <Text>This is the home screen where the map is to be found. 
+            with a List button, ScanQR button and location get button</Text>
+        </View>
+      </Content>
     );
   }
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  }
-})
-
 export default HomeScreen;
 
-
-// npm install native-base
-// DrawerNavigator -> link to individual page - > npm install react-navigation@2.6.2 or 3.0 & npm install
-//Mapview with markers -> link to backend api to show markers
-//location button -> pull location finder from phone
-//list Button -> link to list page
-//ScanQR Button -> list to QR page
+const styles = StyleSheet.create({
+  header: {
+    flex: 1,
+    alignItems: 'flex-start',
+    justifyContent: 'space-between',
+    color: "#000"
+  },
+  icon: {
+    color: '#fff',
+  }
+})

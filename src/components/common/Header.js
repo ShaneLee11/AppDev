@@ -1,6 +1,6 @@
+// Import libraries for making a component
 import React from 'react';
 import { Text, View } from 'react-native';
-import { Icon } from 'native-base';
 
 // Make a component
 const Header = (props) => {

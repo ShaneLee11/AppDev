@@ -1,25 +1,29 @@
 import React, { Component } from 'react';
 import { View, Text } from 'react-native';
-import { Icon } from 'native-base';
-import { Header } from './common';
+import { Header, Icon, Left } from 'native-base';
 
 
 class Rewards extends Component {
   static navigationOptions = {
     drawerIcon : () => (
-      <Icon name="train" style={{ fontSize: 24 }} />
+      <Icon name="md-cube" style={{ fontSize: 24 }} />
           )
   }
-  
   render() {
     return (
-    <View>
-    <Header headerText="Rewards" />
-    <Text> Home Screen </Text>
-    <Text> Home Screen </Text>
-    <Text> Home Screen </Text>
-    </View>
-  );
+      <View>
+        <Header>
+          <Left>
+           <Icon name="menu" onPress={() =>
+           this.props.navigation.openDrawer()} />
+          </Left>
+        </Header>
+        <View style={{ flex: 1, alignItems: 'center', justifyContent:
+      'center' }}>
+        <Text>Rewards Screen</Text>
+      </View>
+      </View>
+      );
   }
 }
 

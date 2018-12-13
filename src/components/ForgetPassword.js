@@ -5,7 +5,7 @@ import firebase from '@firebase/app';
 import '@firebase/auth';
 
 
-class LoginForm extends Component {
+class ForgetPasswordForm extends Component {
   state = { email: '', password: '', error: '', loading: false };
 
   static navigationOptions = {
@@ -116,4 +116,4 @@ const styles = {
   }
 };
 
-export default LoginForm;
+export default ForgetPasswordForm;

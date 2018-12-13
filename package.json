@@ -1,24 +1,40 @@
 {
-  "main": "node_modules/expo/AppEntry.js",
+  "name": "test",
+  "version": "0.0.1",
+  "private": true,
   "scripts": {
-    "start": "expo start",
-    "android": "expo start --android",
-    "ios": "expo start --ios",
-    "eject": "expo eject"
+    "start": "node node_modules/react-native/local-cli/cli.js start",
+    "test": "jest",
+    "clear": "rm -rf $TMPDIR/react-native-packager-cache-* && rm -rf $TMPDIR/metro-bundler-cache-*"
   },
   "dependencies": {
-    "@expo/vector-icons": "^8.0.0",
-    "expo": "^31.0.2",
-    "firebase": "^5.7.0",
+    "@babel/runtime": "^7.2.0",
+    "firebase": "^5.6.0",
     "native-base": "^2.8.1",
-    "react": "16.5.0",
-    "react-base": "^0.2.0",
-    "react-native": "https://github.com/expo/react-native/archive/sdk-31.0.0.tar.gz",
+    "react": "16.6.1",
+    "react-native": "0.57.7",
     "react-native-gesture-handler": "^1.0.10",
-    "react-navigation": "^3.0.6"
+    "react-navigation": "^2.6.2",
+    "react-router-dom": "^4.3.1",
+    "recompose": "^0.30.0"
   },
   "devDependencies": {
-    "babel-preset-expo": "^5.0.0"
+    "@babel/core": "^7.2.0",
+    "@babel/plugin-transform-flow-strip-types": "^7.2.0",
+    "@babel/plugin-transform-runtime": "^7.2.0",
+    "@babel/preset-env": "^7.2.0",
+    "babel-jest": "23.6.0",
+    "babel-loader": "^8.0.4",
+    "jest": "23.6.0",
+    "metro-react-native-babel-preset": "0.50.0",
+    "react-test-renderer": "16.6.1",
+    "webpack": "^4.27.0"
   },
-  "private": true
+  "jest": {
+    "preset": "react-native"
+  },
+  "description": "Test app",
+  "main": "index.js",
+  "author": "KL",
+  "license": "ISC"
 }
