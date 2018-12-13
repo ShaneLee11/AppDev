@@ -39,14 +39,29 @@ class LoginForm extends Component {
     });
   }
 
-  renderButton(buttonText) {
+  renderLogInButton() {
     if (this.state.loading) {
       return <Spinner size='small' />;
     }
   
     return (
       <Button onPress={this.onButtonPress.bind(this)}>
-        {buttonText}
+        Log In
+      </Button>
+    );
+  }
+
+  onSignUpPress() {
+
+  }
+  renderSignUpButton() {
+    if (this.state.loading) {
+      return <Spinner size='small' />;
+    }
+  
+    return (
+      <Button onPress={this.onSignUpPress.bind(this)}>
+        Sign Up
       </Button>
     );
   }
@@ -78,7 +93,7 @@ class LoginForm extends Component {
         </Text>
 
         <CardSection>
-          {this.renderButton('Log In')}
+          {this.renderLogInButton()}
         </CardSection>
 
         <CardSection>
@@ -88,7 +103,7 @@ class LoginForm extends Component {
         </CardSection>
 
         <CardSection>
-          {this.renderButton('Sign Up')}
+          {this.renderSignUpButton()}
         </CardSection>
       </Card>
     );
