@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, TouchableOpacity } from 'react-native';
 import { Header, Button, CardSection } from './common';
 import { Icon, Content } from 'native-base';
 import firebase from '@firebase/app';
@@ -14,6 +14,11 @@ class Profile extends Component {
 
   onLogoutPress() {
     firebase.auth().signOut();
+    <TouchableOpacity style={{ width:'100%', height:50, justifyContent:'center', alignItems:'center'}} 
+      onPress={() => props.navigation.navigate('SignIn') }
+      >
+        <Text style={{fontSize:15, fontWeight:'500'}}>Logout</Text>
+      </TouchableOpacity>
   }
 
   render() {

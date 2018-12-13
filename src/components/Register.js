@@ -1,15 +1,15 @@
 import React, { Component } from 'react';
-import { Text, View, TouchableOpacity } from 'react-native';
+import { Text, TouchableOpacity } from 'react-native';
 import { Button, Card, CardSection, Input, Spinner } from './common';
 import firebase from '@firebase/app';
 import '@firebase/auth';
 
 
-class LoginForm extends Component {
+class Register extends Component {
   state = { email: '', password: '', error: '', loading: false };
 
   static navigationOptions = {
-    title: 'Please sign in',
+    title: 'Sign Up',
   };
 
   onButtonPress() {
@@ -33,6 +33,7 @@ class LoginForm extends Component {
   onLoginSuccess() {
     console.log('login sccuess')
     this.setState({
+      username:'',
       email: '',
       password: '',
       loading: false,
@@ -52,22 +53,19 @@ class LoginForm extends Component {
     );
   }
 
-
-  resetPassword = () => {
-   Firebase.auth()
-    .sendPasswordResetEmail(email)
-    .then((response) => {
-      console.log('response ------ ', response)
-    })
-    .catch((error)=> {
-      console.log('response ------ ', error)
-    });
-  }
-
-
   onSignUpPress() {
     console.log('props ------ ', this.props);
- this.props.navigation.navigate('Register');
+        firebase
+          .auth()
+          .createUserWithEmailAndPassword(this.state.email, this.state.password)
+          .then((response) => {
+            console.log('response ------- ', response)
+          })
+          .catch(error => {
+              console.log('error ------ ', error);
+            this.setState({ error: 'Authentication Failed', loading: false });
+          })
+      
   }
 
   renderSignUpButton() {
@@ -85,7 +83,15 @@ class LoginForm extends Component {
   render() {
     return (
       <Card height={1} color='transparent' justifyContent='center'>
-        <Card height={0.7} color='transparent' justifyContent='space-around'>
+        <Card height={0.5} color='transparent' justifyContent='flex-start'>
+          <CardSection>
+            <Input
+            label='Full Name'
+            placeholder='username'
+            value={this.state.username}
+            onChangeText={(username) => this.setState({ username })}
+            />
+          </CardSection>
           <CardSection>
             <Input
             label='Email'
@@ -108,28 +114,28 @@ class LoginForm extends Component {
 
           <Text style={styles.errorTextStyle} >
             {this.state.error}
-          </Text>
+          </Text>          
 
-          <Card height={0.5} justifyContent='center'>
+        </Card>
+
+
+          <Card height={0.5} justifyContent='flex-start'>
             <CardSection>
-              {this.renderLogInButton()}
+              {this.renderSignUpButton()}
             </CardSection>
 
               <TouchableOpacity style={styles.viewStyle}
-              onPress={() => this.props.navigation.navigate('ForgotPassword')}
+              onPress={() => this.props.navigation.goBack()}
               >
-                <Text style={styles.textStyle}>Forgot Password</Text>
+                <Text style={styles.textStyle}>Already Registered? Login</Text>
               </TouchableOpacity>
           </Card>
-          
-
-        </Card>
         
-        <Card height={0.3} justifyContent='center'>
+        {/* <Card height={0.3} justifyContent='center'>
           <CardSection>
             {this.renderSignUpButton()}
           </CardSection>
-        </Card>
+        </Card> */}
 
 
         
@@ -159,4 +165,4 @@ const styles = {
   }
 };
 
-export default LoginForm;
+export default Register;
