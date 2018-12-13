@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { View, Text } from 'react-native';
-import { Header } from './common/Header';
-import { Icon } from 'native-base';
+import { AppHeader } from './common';
+import { Icon, Content } from 'native-base';
 
 
 class History extends Component {
@@ -13,12 +13,12 @@ class History extends Component {
 
   render() {
     return (
-    <View>
-    <Header headerText="History" />
-    <Text> History Screen </Text>
-    <Text> History Screen </Text>
-    <Text> History Screen </Text>
-    </View>
+    <Content>
+      <AppHeader headerText="History" navigate={this.props.navigation} />
+      <Text> History Screen </Text>
+      <Text> History Screen </Text>
+      <Text> History Screen </Text>
+    </Content>
   );
   }
 }

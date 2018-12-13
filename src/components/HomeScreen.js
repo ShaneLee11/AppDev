@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import { Header, Left, Right, Icon, Content, Body, Title } from 'native-base';
+import { AppHeader } from './common';
 
 
 class HomeScreen extends Component {
@@ -11,19 +12,15 @@ class HomeScreen extends Component {
       <Icon name="home" style={{ fontSize: 24 }} />
     )
   }
+  constructor(props) {
+    super(props);
+  }
 
   render() {
     return (
       <Content>
-        <Header>
-          <Left>
-            <Icon name="menu" onPress={() => this.props.navigation.openDrawer()} />
-          </Left>
-          <Body>
-            <Title>Home</Title>
-          </Body>
-          <Right />
-        </Header>
+        <AppHeader headerText="Home" navigate={this.props.navigation} />
+        
         <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
           <Text>This is the home screen where the map is to be found. 
             with a List button, ScanQR button and location get button</Text>

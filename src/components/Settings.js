@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
-import { Icon } from 'native-base';
-
+import { Icon, Content } from 'native-base';
+import { AppHeader } from './common';
 
 class Settings extends Component {
   static navigationOptions = {
@@ -11,24 +11,15 @@ class Settings extends Component {
   }
   render() {
     return (
-      <View>
-        <Header>
-          <Left>
-           <Icon name="menu" onPress={() =>
-           this.props.navigation.openDrawer()} />
-          </Left>
-        </Header>
-        <View style={{ flex: 1, alignItems: 'center', justifyContent:
-      'center' }}>
-        <Text>Settings Screen</Text>
-      </View>
-      </View>
+      <Content>
+        <AppHeader headerText="Settings" navigate={this.props.navigation} />
+        <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+          <Text>Settings Screen</Text>
+        </View>
+      </Content>
       );
   }
 }
-
-
-
 
 export default Settings;
 

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { View, Text } from 'react-native';
-import { Header } from './common/Header';
-import { Icon } from 'native-base';
+import { AppHeader } from './common';
+import { Icon, Content } from 'native-base';
 
 
 class Payment extends Component {
@@ -12,12 +12,12 @@ class Payment extends Component {
   }
   render() {
     return (
-    <View>
-    <Header headerText="Payment" />
-    <Text> Payment Screen </Text>
-    <Text> Payment Screen </Text>
-    <Text> Payment Screen </Text>
-    </View>
+    <Content>
+      <AppHeader headerText="Payment" navigate={this.props.navigation} />
+      <Text> Payment Screen </Text>
+      <Text> Payment Screen </Text>
+      <Text> Payment Screen </Text>
+    </Content>
   );
   }
 }

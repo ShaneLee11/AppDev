@@ -1,21 +1,26 @@
 // Import libraries for making a component
 import React from 'react';
-import { Text, View } from 'react-native';
+import { Header, Left, Right, Icon, Body, Title } from 'native-base';
 
 // Make a component
-const Header = (props) => {
+const AppHeader = (props) => {
   const { textStyle, viewStyle } = styles;
-
+  
   return (
-    <View style={viewStyle}>
-      <Text style={textStyle}>{props.headerText}</Text>
-    </View>
+    <Header style={viewStyle}>
+      <Left>
+        <Icon name="menu" onPress={() => props.navigate.openDrawer()} />
+      </Left>
+      <Body>
+        <Title style={textStyle}>{props.headerText}</Title>
+      </Body>
+      <Right />
+    </Header>
   );
 };
 
 const styles = {
   viewStyle: {
-    backgroundColor: '#F8F8F8',
     justifyContent: 'center',
     alignItems: 'center',
     height: 60,
@@ -31,5 +36,4 @@ const styles = {
   }
 };
 
-// Make the component available to other parts of the app
-export { Header };
+export { AppHeader };

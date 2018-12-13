@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { View, Text } from 'react-native';
-import { Header, Icon, Left } from 'native-base';
-
+import { Content, Icon, Left } from 'native-base';
+import { AppHeader } from './common';
 
 class Rewards extends Component {
   static navigationOptions = {
@@ -11,18 +11,12 @@ class Rewards extends Component {
   }
   render() {
     return (
-      <View>
-        <Header>
-          <Left>
-           <Icon name="menu" onPress={() =>
-           this.props.navigation.openDrawer()} />
-          </Left>
-        </Header>
-        <View style={{ flex: 1, alignItems: 'center', justifyContent:
-      'center' }}>
-        <Text>Rewards Screen</Text>
-      </View>
-      </View>
+      <Content>
+        <AppHeader headerText="Rewards" navigate={this.props.navigation} />
+        <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+          <Text>Rewards Screen</Text>
+        </View>
+      </Content>
       );
   }
 }

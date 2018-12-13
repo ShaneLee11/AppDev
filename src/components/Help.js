@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-import { View, Text, Platform, LayoutAnimation,
-  StyleSheet, ScrollView, UIManager, TouchableOpacity } from 'react-native';
-//import { Header } from './common/Header';
-import { Icon, Header, Left } from 'native-base';
+import { View, Text, Platform, LayoutAnimation, StyleSheet, ScrollView, UIManager, TouchableOpacity } from 'react-native';
+import { AppHeader } from './common/Header';
+import { Icon, Content } from 'native-base';
 
 class Accordion_Panel extends Component {
 

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
-import { Header, Button, CardSection } from './common';
+import { AppHeader, Button, CardSection } from './common';
 import { Icon, Content } from 'native-base';
 import firebase from '@firebase/app';
 import '@firebase/auth';
@@ -23,8 +23,8 @@ class Profile extends Component {
 
   render() {
     return (
-      <View>
-        <Header headerText="Profile" />
+      <Content>
+        <AppHeader headerText="Profile" navigate={this.props.navigation} />
 
         <Text> Profile Screen </Text>
         <Text> Profile Screen </Text>
@@ -35,7 +35,7 @@ class Profile extends Component {
             Logout
           </Button>
         </CardSection>
-      </View>
+      </Content>
     );
   }
 }
